@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="en"><!-- sherad by mllatweb.com -->
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="ThemeStarz">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/odometer-theme-default.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+	<title></title>
+
+</head>
+<style>
+  /* استایل های پایه */
+  * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* استایل گالری اصلی */
+        .media-gallery {
+            --gap: 15px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 200px;
+            gap: var(--gap);
+            padding: var(--gap);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* کلاس های سایز بندی */
+        .horizontal {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        .vertical {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+
+        .square {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* کنترلر ویدیو */
+        video::-webkit-media-controls-panel {
+            background: rgba(0,0,0,0.5);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+            text-align: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* دکمه های ناوبری */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .prev-btn {
+            left: 2rem;
+        }
+
+        .next-btn {
+            right: 2rem;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* انیمیشن */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* واکنشگرایی */
+        @media (max-width: 768px) {
+            .media-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
+                height: 300px;
+            }
+
+            .nav-btn {
+                font-size: 1.5rem;
+                padding: 0.8rem;
+            }
+
+            .close-btn {
+                top: 1rem;
+                right: 1rem;
+                font-size: 2rem;
+            }
+        }
+</style>
+<body data-spy="scroll" data-target=".navbar" class="has-loading-screen">
+    <div class="ts-page-wrapper" id="page-top">
+        <!--NAVIGATION ******************************************************************************************-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
+            <div class="container">
+                <a class="navbar-brand ts-push-down__50 position-absolute ts-bottom__0 bg-white pb-0 ts-z-index__1 ts-scroll" href="#page-top">
+                    <img src="assets/img/logo.png" alt="">
+                </a>
+                <!--end navbar-brand-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--end navbar-toggler-->
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav d-block d-lg-flex ml-auto text-right">
+                        <a class="nav-item nav-link active ts-scroll" href="#page-top">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link ts-scroll" href="#my-services">Services</a>
+                        <a class="nav-item nav-link ts-scroll" href="#about-me">About Us</a>
+                        <a class="nav-item nav-link ts-scroll" href="#my-skills">Skills</a>
+                        <a class="nav-item nav-link ts-scroll" href="#portfolio">Portfolio</a>
+                        <a class="nav-item nav-link ts-scroll" href="#testimonials">Clients</a>
+                        <a class="nav-item nav-link ts-scroll mr-2" href="#form-contact">Contact</a>
+                    </div>
+                    <!--end navbar-nav-->
+                </div>
+                <!--end collapse-->
+            </div>
+            <!--end container-->
+        </nav>
+        <!--end navbar-->
+        <!--*********************************************************************************************************-->
+        <!--************ HERO ***************************************************************************************-->
+        <!--*********************************************************************************************************-->
+        <div id="ts-hero" class="ts-animate-hero-items">
+
+            <!--HERO CONTENT ****************************************************************************************-->
+            <div class="container position-relative h-100 ts-align__vertical">
+                <div class="row w-100">
+                    <div class="col-md-8">
+                        <!--SOCIAL ICONS-->
+                        <figure class="ts-social-icons mb-4">
+                            <a href="#" class="mr-3">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="mr-3">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="mr-3">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                            <a href="#" class="mr-3">
+                                <i class="fab fa-slack"></i>
+                            </a>
+                            <a href="#" class="mr-3">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </figure>
+
+                        <!--TITLE -->
+                        <h1>I am <h1 class="ts-bubble-border">
+<span class="ts-title-rotate">
+
+                        </h1></h1>
+                        <h1 class="ts-bubble-border">
+                            <span class="ts-title-rotate">
+                                <span class="active"> Graphic Designer</span>
+                                <span>Video Editor</span>
+                                <span> Web Developer</span>
+                                <span>Film maker</span>
+                                <span>Content Creator</span>
+                                <span>Photographer</span>
+                                <span>Advertising Project Presenter</span>
+                                <span>Art Director</span>
+                                <span>Ui Designer</span>
+                                <span>Social Media Manager</span>
+                            </span>
+                        </h1>
+
+                    </div>
+                    <!--end col-md-8-->
+                </div>
+                <!--end row-->
+                <a href="#my-services" class="ts-btn-effect position-absolute ts-bottom__0 ts-left__0 ts-scroll ml-3 mb-3">
+                    <span class="ts-visible ts-circle__sm rounded-0 ts-bg-primary">
+                        <i class="fa fa-arrow-down text-white"></i>
+                    </span>
+                    <span class="ts-hidden ts-circle__sm rounded-0">
+                        <i class="fa fa-arrow-down text-white"></i>
+                    </span>
+                </a>
+
+            </div>
+            <!--end container-->
+            <!--END HERO CONTENT ************************************************************************************-->
+
+            <!--HERO BACKGROUND *************************************************************************************-->
+            <div class="ts-background">
+                <div class="ts-background-image" data-bg-image="assets/img/bg-hero.jpg"></div>
+            </div>
+            <!--END HERO BACKGROUND *********************************************************************************-->
+
+        </div>
+        <!--end #hero-->
+
+        <!--*********************************************************************************************************-->
+        <!--************ CONTENT ************************************************************************************-->
+        <!--*********************************************************************************************************-->
+        <main id="ts-content">
+
+            <!--MY SERVICES ***********************************************************************************-->
+            <section id="my-services" class="ts-block ts-xs-text-center pb-0">
+                <div class="container">
+                    <div class="ts-title text-center">
+                        <h2>Our Services</h2>
+                    </div>
+                    <!--end ts-title-->
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 col-xl-4">
+                            <div class="ts-item" data-animate="ts-fadeInUp">
+                                <div class="ts-item-content">
+                                    <div class="ts-item-header">
+                                        <figure class="icon">
+                                            <img src="assets/img/icon-brushes.png" alt="">
+                                        </figure>
+                                        <!--end icon-->
+                                    </div>
+                                    <!--end ts-item-header-->
+                                    <div class="ts-item-body">
+                                        <h4>Graphic Design</h4>
+                                        <p class="mb-0">
+                                            We create visually stunning and user-friendly websites that enhance brand presence and engagement
+                                        </p>
+                                    </div>
+                                    <!--end ts-item-body-->
+                  
+                                    <!--end ts-item-footer-->
+                                </div>
+                                <!--end ts-item-content-->
+                            </div>
+                            <!--end ts-item-->
+                        </div>
+                        <!--end col-xl-4-->
+                        <div class="col-sm-6 col-md-4 col-xl-4">
+                            <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".1s">
+                                <div class="ts-item-content">
+                                    <div class="ts-item-header">
+                                        <figure class="icon">
+                                            <img src="assets/img/icon-camera.png" alt="">
+                                        </figure>
+                                        <!--end icon-->
+                                    </div>
+                                    <!--end ts-item-header-->
+                                    <div class="ts-item-body">
+                                        <h4>Photography</h4>
+                                        <p class="mb-0">
+                                            Capturing high-quality, professional images that tell your brand’s story and leave a lasting impression.
+                                        </p>
+                                    </div>
+                                    <!--end ts-item-body-->
+                       
+                                    <!--end ts-item-footer-->
+                                </div>
+                                <!--end ts-item-content-->
+                            </div>
+                            <!--end ts-item-->
+                        </div>
+                        <!--end col-xl-4-->
+                        <div class="col-sm-6 col-md-4 col-xl-4">
+                            <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".2s">
+                                <div class="ts-item-content">
+                                    <div class="ts-item-header">
+                                        <figure class="icon">
+                                            <img src="assets/img/icon-video.png" alt="">
+                                        </figure>
+                                        <!--end icon-->
+                                    </div>
+                                    <!--end ts-item-header-->
+                                    <div class="ts-item-body">
+                                        <h4>Video Editing</h4>
+                                        <p class="mb-0">
+                                            Transforming raw footage into compelling, polished videos that captivate your audience.
+                                        </p>
+                                    </div>
+                                    <!--end ts-item-body-->
+                           
+                                    <!--end ts-item-footer-->
+                                </div>
+                                <!--end ts-item-content-->
+                            </div>
+                            <!--end ts-item-->
+                        </div>
+                        <!--end col-xl-4-->
+                        <div class="col-sm-6 col-md-4 col-xl-4">
+                            <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".3s">
+                                <div class="ts-item-content">
+                                    <div class="ts-item-header">
+                                        <figure class="icon">
+                                            <img src="assets/img/icon-pencil.png" alt="">
+                                        </figure>
+                                        <!--end icon-->
+                                    </div>
+                                    <!--end ts-item-header-->
+                                    <div class="ts-item-body">
+                                        <h4>Ui Design</h4>
+                                        <p class="mb-0">
+                                            Crafting intuitive and aesthetically pleasing user interfaces for seamless digital experiences.
+                                        </p>
+                                    </div>
+                                    <!--end ts-item-body-->
+                              
+                                    <!--end ts-item-footer-->
+                                </div>
+                                <!--end ts-item-content-->
+                            </div>
+                            <!--end ts-item-->
+                        </div>
+                        <!--end col-xl-4-->
+                        <div class="col-sm-6 col-md-4 col-xl-4">
+                            <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".4s">
+                                <div class="ts-item-content">
+                                    <div class="ts-item-header">
+                                        <figure class="icon">
+                                            <img src="assets/img/icon-lcd.png" alt="">
+                                        </figure>
+                                        <!--end icon-->
+                                    </div>
+                                    <!--end ts-item-header-->
+                                    <div class="ts-item-body">
+                                        <h4>Front_End Developing</h4>
+                                        <p class="mb-0">
+                                            Building fast, responsive, and interactive web applications with cutting-edge technologies.
+                                        </p>
+                                    </div>
+                                    <!--end ts-item-body-->
+                                   
+                                    <!--end ts-item-footer-->
+                                </div>
+                                <!--end ts-item-content-->
+                            </div>
+                            <!--end ts-item-->
+                        </div>
+                        <!--end col-xl-4-->
+                        <div class="col-sm-6 col-md-4 col-xl-4">
+                            <div class="ts-item" data-animate="ts-fadeInUp" data-delay=".5s">
+                                <div class="ts-item-content">
+                                    <div class="ts-item-header">
+                                        <figure class="icon">
+                                            <img src="assets/img/icon-phone.png" alt="">
+                                        </figure>
+                                        <!--end icon-->
+                                    </div>
+                                    <!--end ts-item-header-->
+                                    <div class="ts-item-body">
+                                        <h4>Social Media Managing</h4>
+                                        <p class="mb-0">
+                                            Strategizing, creating, and optimizing content to grow your online presence effectively.
+                                        </p>
+                                    </div>
+                                    <!--end ts-item-body-->
+                                  
+                                    <!--end ts-item-footer-->
+                                </div>
+                                <!--end ts-item-content-->
+                            </div>
+                            <!--end ts-item-->
+                        </div>
+                        <!--end col-xl-4-->
+
+                    </div>
+                    <!--end row-->
+                </div>
+                <!--end container-->
+            </section>
+            <!--END MY SERVICES *************************************************************************************-->
+
+            <section id="about-me" class="ts-block pb-4">
+                <div class="container">
+                    <div class="ts-title text-center">
+                        <h2>About Us</h2>
+                    </div>
+                    <!--end ts-title-->
+                    <div class="row ts-align__vertical">
+                        <div class="col-md-6">
+                            <img src="assets/img/img-man-looking.jpg" alt="" class="mw-100 mb-5">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="ts-bubble-border">Hi There</h4>
+                            <p>
+                                We are a multimedia student duo from the University of Art in Tabriz, specializing in graphic design, content creation, photography, video editing, front-end programming, social media management, and digital services.
+                                Our collaborations with organizations like Tabriz Municipality, government offices, research institutes, schools, and advertising centers have equipped us to turn ideas into practical and engaging projects.
+                                By blending creativity, quality commitment, and competitive pricing, we’re here to narrate your brand’s story through compelling visual language.
+                                Contact us today to start collaborating!
+                            </p>
+                            <dl class="ts-column-count-2">
+                                <dt>Names:</dt>
+                                <dd> Amir Masoud Behboodi & <br> Pariya Feyz Allahzadeh</dd>
+                                <dt>
+                                        .
+                                </dt>
+                                <dd>        </dd>
+                                <dt>Email:</dt>
+                                <dd>amirmasoudbehboodi@gmail.com</dd>
+                                <dt>Phone:</dt>
+                                <dd>09148288583</dd>
+                                
+                              
+                            </dl>
+                            <hr class="ts-hr-light mb-5">
+                            <a href="#contact" class="ts-btn-effect mr-2">
+                                <span class="ts-visible btn btn-primary ts-btn-arrow">Contact Me</span>
+                                <span class="ts-hidden btn btn-primary ts-btn-arrow" data-bg-color="#d44729">Contact Me</span>
+                            </a>
+                            <!--<a href="#contact" class="btn btn-primary ts-btn-arrow mr-2">Contact Me</a>-->
+                            <!--<a href="#contact" class="btn btn-outline-light ts-btn-border-light">-->
+                                <!--<i class="fa fa-download small mr-2"></i>-->
+                                <!--Download CV-->
+                            <!--</a>-->
+                            <a href="#contact" class="ts-btn-effect mr-2">
+                                <span class="ts-visible btn btn-outline-light">
+                                    <i class="fa fa-download small mr-2"></i>
+                                    Download CV
+                                </span>
+                                <span class="ts-hidden btn btn-light bg-white">
+                                    <i class="fa fa-download small mr-2"></i>
+                                    Download CV
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <!--end row-->
+                </div>
+            </section>
+
+            <section class="ts-block">
+                <div class="container">
+                    <div class="text-center px-5 pt-5 position-relative">
+                        <h3 class="my-3">
+                            Let’s Work Together On Your Next Project!
+                        </h3>
+                        <a href="#contact" class="btn btn-primary mr-2 ts-push-down__50 ts-has-talk-arrow">Hire Us Now!</a>
+                        <div class="ts-background ts-opacity__20" data-bg-image="assets/img/bg-keyboard.jpg"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="my-skills" class="ts-block pb-5">
+                <div class="container">
+                    <div class="ts-title text-center">
+                        <h2>Our Skills</h2>
+                    </div>
+                    <!--end ts-title-->
+                    <h4>Every Day is a  New Challenge</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>
+                                I'm a versatile creative professional with expertise spanning multiple digital disciplines. My skill set allows me to deliver comprehensive solutions from concept to execution:
+
+                                Design & Creativity
+                                
+                                Professional Logo Design & Brand Identity
+                                
+                                UI/UX Design (Wireframing, Prototyping, Visual Design)
+                                
+                                Adobe Photoshop (Photo Editing, Digital Art, Compositing)
+                                
+                                Adobe Illustrator (Vector Graphics, Illustrations, Typography)
+                                
+                                Motion & Video
+                                
+                                Video Editing (Adobe Premiere Pro)
+                                
+                                Multimedia Production
+                                
+                                Development
+                                
+                                Front-End Development (HTML, CSS, JavaScript)
+                            </p>
+                            <a href="#contact" class="btn btn-outline-light mb-5">Contact Me</a>
+                        </div>
+                        <!--end col-md-6-->
+                        <div class="col-md-6">
+                            <div class="progress" data-progress-width="100%">
+                                <h5 class="ts-progress-title">Graphic Design</h5>
+                                <figure class="ts-progress-value"></figure>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress" data-progress-width="100%">
+                                <h5 class="ts-progress-title">Video Editing</h5>
+                                <figure class="ts-progress-value"></figure>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <!--end progress-->
+                            <div class="progress" data-progress-width="80%">
+                                <h5 class="ts-progress-title">Photography</h5>
+                                <figure class="ts-progress-value"></figure>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <!--end progress-->
+                            <div class="progress" data-progress-width="65%">
+                                <h5 class="ts-progress-title">Coding</h5>
+                                <figure class="ts-progress-value"></figure>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <!--end progress-->
+                           
+                            <!--end progress-->
+                            <div class="progress" data-progress-width="100%">
+                                <h5 class="ts-progress-title">Social Media Maneging</h5>
+                                <figure class="ts-progress-value"></figure>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <!--end col-md-6-->
+                    </div>
+                    <!--end row-->
+                </div>
+                <!--end container-->
+            </section>
+
+            <section class="media-gallery">
+                <!-- ردیف 1 -->
+                <div class="gallery-item vertical">
+                    <video controls muted loop  src="assets/img/edit zarneshan.mp4"></video>
+                   
+                </div>
+                <div class="gallery-item vertical">
+                    <img src="assets/img/3.jpg" alt="تصویر 1">
+                </div>
+                <div class="gallery-item vertical">
+                    <img src="assets/img/araz_amodi.jpg" alt="تصویر 1">
+                </div>
+                <div class="gallery-item vertical">
+                    <img src="assets/img/ashora_amoodi.jpg" alt="تصویر 1">
+                </div>
+              
+                <div class="gallery-item vertical">
+                    <video controls muted loop>
+                        <source src="assets/img/amodi.mp4" type="video/mp4">
+                    </video>
+                    </div>
+                    <div class="gallery-item vertical">
+                        <video controls muted loop>
+                            <source src="assets/img/amoodi.mp4" type="video/mp4">
+                        </video>
+                        </div>
+                        <div class="gallery-item vertical "   >
+                             <img src="assets/img/مدرسه فوتبال.jpg" alt="poster">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/baner_ofoghi.jpg" alt=" 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/banerAli_amoodi.jpg" alt="2 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/banner 1.jpg" alt="3 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/bilboard ofoghi.jpg" alt="4 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/billbord_ofoghi.jpg" alt="5 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/broshor posht _ofoghi.jpg" alt="6 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/broshor ro _ofoghi.jpg" alt="7 1">
+                        </div>
+                        <div class="gallery-item square">
+                            <img src="assets/img/همه جا هستیم.jpg" alt="8 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/factor_amoodi.jpg" alt="9 1">
+                        </div>
+                       
+                        <div class="gallery-item square">
+                            <img src="assets/img/ff_1dar1.jpg" alt="11 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/info_ofoghi.jpg" alt="12 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/info_ofoghii.jpg" alt="13 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/infoo_ofoghi.jpg" alt="14 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/karbalaaa.jpg" alt="15 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/kartdavat_ofoghi.jpg" alt="16 1">
+                        </div>
+                        <div class="gallery-item square">
+                            <img src="assets/img/kartvisit_yek dar yek.jpg" alt="17 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/mocjup_amoodi.jpg" alt="18 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/mockbroch_ofoghi.jpg" alt="19 1">
+                        </div>
+                        <div class="gallery-item  vertical">
+                            <img src="assets/img/poster moharram_amoodi.jpg" alt="20 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/poster_amoodi.jpg" alt="21 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/poster_amoodi.png" alt="22 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/posteramof.jpg" alt="23 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/posterbasij_amoodi.jpg" alt="24 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/rinotex_ofoghi.jpg" alt="25 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/shenasnameh_amoodi.jpg" alt="26 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/taghvim_amodi.jpg" alt="27 1">
+                        </div>
+                        <div class="gallery-item vertical"  >
+                            <img src="assets/img/سنتی copy.jpg" alt="28">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/timatable.jpg" alt="29 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/traket9dey_amoodi.jpg" alt="30 1">
+                        </div>
+                       
+                        <div class="gallery-item square">
+                            <img src="assets/img/اظلاع رسانی.jpg" alt="32 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/بیلبورد.jpg" alt="33 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/ددعوتنامه.png" alt="34 1">
+                        </div>
+                        <div class="gallery-item vertical">
+                            <img src="assets/img/فاطمنیه.jpg" alt="35 1">
+                        </div>
+                        <div class="gallery-item square">
+                            <img src="assets/img/ل تاب copy.jpg" alt="36 1">
+                        </div>
+                       
+                      
+
+
+                <!-- ردیف 2 تا 7 به همین صورت ادامه دهید ... -->
+            </section>
+        
+            <!-- Lightbox -->
+            <div class="lightbox">
+                <span class="close-btn">&times;</span>
+                <button class="nav-btn prev-btn">❮</button>
+                <button class="nav-btn next-btn">❯</button>
+                <div class="lightbox-content">
+                    <img class="lightbox-img" src="" alt="نمایش بزرگ">
+                </div>
+            </div>
+            </section>
+            <!--end portfolio-->
+        
+            <section class="ts-block" data-bg-image="assets/img/bg-man-sitting.jpg">
+                <div class="container ts-promo-numbers">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ts-promo-number text-center">
+                                <figure class="odometer" data-odometer-final="+25">0</figure>
+                                <h5>Clients</h5>
+                            </div>
+                            <!--end ts-promo-number-->
+                        </div>
+                        <!--end col-md-3-->
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ts-promo-number text-center">
+                                <figure class="odometer" data-odometer-final="+47">0</figure>
+                                <h5>Projects</h5>
+                            </div>
+                            <!--end ts-promo-number-->
+                        </div>
+                        <!--end col-md-3-->
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ts-promo-number text-center">
+                                <figure class="odometer" data-odometer-final="+6">0</figure>
+                                <h5>Awards</h5>
+                            </div>
+                            <!--end ts-promo-number-->
+                        </div>
+                        <!--end col-md-3-->
+                        <div class="col-sm-6 col-md-3">
+                            <div class="ts-promo-number text-center">
+                                <figure class="odometer" data-odometer-final="+4">0</figure>
+                                <h5>Years Experience</h5>
+                            </div>
+                            <!--end ts-promo-number-->
+                        </div>
+                        <!--end col-md-3-->
+                    </div>
+                </div>
+            </section>
+            <!--end ts-block-->
+
+           
+
+            <!--LOGOS ***********************************************************************************************-->
+            <section id="partners" class="ts-block py-4">
+                <!--container-->
+
+                
+                <div class="container">
+                    <!--block of logos-->
+                    <div class="ts-title text-center">
+                        <h2 class="ts-bubble-border">Our colleagues</h2>
+                    </div>
+                    <div class="d-block d-md-flex justify-content-between align-items-center text-center ts-partners py-3">
+                        <a href="assets/img/logo1.png">
+                            <img src="assets/img/logo1.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="assets/img/logo2.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="assets/img/logo3.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="assets/img/logo7.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="assets/img/logo4.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="assets/img/logo5.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="assets/img/logo6.png" alt="">
+                        </a>
+                        
+                        
+
+                    </div>
+                    <!--end logos-->
+                </div>
+                
+                <!--end container-->
+            </section>
+            <!--END LOGOS *******************************************************************************************-->
+
+        </main>
+        <!--end #content-->
+
+        <!--*********************************************************************************************************-->
+        <!--************ FOOTER *************************************************************************************-->
+        <!--*********************************************************************************************************-->
+        <footer id="ts-footer" class="mt-5">
+
+            <section id="contact" class="ts-block ts-separate-bg-element" data-bg-image="assets/img/bg-man-wall.jpg" data-bg-image-opacity=".1">
+                <div class="container">
+                    <div class="ts-title text-center">
+                        <h2 class="ts-bubble-border">Get In Touch</h2>
+                    </div>
+                    <div class="row ts-xs-text-center ">
+                        <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp">
+                            <img src="a" class="mb-4" alt="">
+                            <h5>Address</h5>
+                            <div class="ts-opacity__50">
+                                <figure class="mb-0">Azadi street</figure>
+                                <figure>Ir Tabriz</figure>
+                            </div>
+                            <!--end ts-opacity__50-->
+                        </div>
+                        <!--end col-md-3-->
+                        <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp" data-delay=".1s">
+                            <img src="" class="mb-4" alt="">
+                            <h5>Phone</h5>
+                            <div class="ts-opacity__50">
+                                <figure class="mb-0">09148288583</figure>
+                                <figure></figure>
+                            </div>
+                            <!--end ts-opacity__50-->
+                        </div>
+                        <!--end col-md-3-->
+                        <div class="col-sm-6 col-md-3 mb-4" data-animate="ts-fadeInUp" data-delay=".2s">
+                            <img src="" class="mb-4" alt="">
+                            <h5>Email</h5>
+                            <div class="ts-opacity__50">
+                                <figure class="mb-0">amirmasoudbehboodi@gmail.com</figure>
+                                <figure></figure>
+                            </div>
+                            <!--end ts-opacity__50-->
+                        </div>
+                        <!--end col-md-3-->
+                       
+                            <!--end ts-opacity__50-->
+                       
+                        <!--end col-md-3-->
+                    </div>
+                    <!--end row-->
+
+
+    <!-- Modal -->
+    <div class="modal fade text-dark" id="modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content border-0 rounded-0">
+                <div class="modal-header bg-light px-5 pt-0 pb-5">
+                    <div class="ts-title mb-0">
+                        <figure class="ts-circle__md bg-dark rounded-0">
+                            <img src="assets/img/icon-brushes.png" alt="">
+                        </figure>
+                        <h4 class="mb-0">Web Design</h4>
+                    </div>
+
+                    <button type="button" class="close position-absolute ts-top__0 ts-right__0 m-2" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-5">
+                    <h5 class="mb-4">Latest Works</h5>
+                    <div class="owl-carousel" data-owl-dots="1">
+                        <div class="slide">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="assets/img/img-work-detail-01.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h4 class="mb-3">Creative Lights</h4>
+                                        <p>
+                                            In id nulla magna. Nullam posuere fermentum mattis. Nunc id dui at sapien faucibus
+                                            fermentum ut vel diam. Nullam tempus, nunc id efficitur sagittis, urna est
+                                            ultricies.
+                                        </p>
+                                        <a href="#" class="mb-4 text-dark d-block">
+                                            <i class="fa fa-globe ts-opacity__50 mr-2"></i>
+                                            www.example.com
+                                        </a>
+                                        <hr>
+                                        <h6>Services Included</h6>
+                                        <ul class="list-unstyled ts-opacity__50">
+                                            <li>Design</li>
+                                            <li>Coding</li>
+                                            <li>SEO Optimization</li>
+                                            <li>Hosting</li>
+                                        </ul>
+                                    </div>
+                                    <!--end col-md-8-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <!--end container-fluid-->
+                        </div>
+                        <!--end slide-->
+                        <div class="slide">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="assets/img/img-work-detail-02.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h4 class="mb-3">Wood Ceiling</h4>
+                                        <p>
+                                            Phasellus volutpat velit nec purus elementum feugiat. Nunc feugiat fringilla turpis.
+                                            Nam sed facilisis sem. Vestibulum vitae orci nec purus fringilla condimentum.
+                                            Pellentesque id augue rhoncus, finibus sapien ut, commodo eros. Maecenas in nibh
+                                            augue. Nunc rutrum blandit massa eu aliquet. Nulla facilisi. Aenean luctus ipsum
+                                            in orci sagittis auctor vel sit amet ex
+                                        </p>
+                                        <a href="#" class="mb-4 text-dark d-block">
+                                            <i class="fa fa-globe ts-opacity__50 mr-2"></i>
+                                            www.example.com
+                                        </a>
+                                        <hr>
+                                        <h6>Services Included</h6>
+                                        <ul class="list-unstyled ts-opacity__50">
+                                            <li>Design</li>
+                                            <li>Coding</li>
+                                            <li>SEO Optimization</li>
+                                            <li>Hosting</li>
+                                        </ul>
+                                    </div>
+                                    <!--end col-md-8-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <!--end container-fluid-->
+                        </div>
+                        <!--end slide-->
+                    </div>
+                    <!--end owl-carousel-->
+                </div>
+                <!--end modal-body-->
+            </div>
+            <!--end modal-content-->
+        </div>
+        <!--end modal-dialog-->
+    </div>
+    <!--end modal-->
+
+	<script src="assets/js/custom.hero.js"></script>
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+	<script src="assets/js/isInViewport.jquery.js"></script>
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="assets/js/scrolla.jquery.min.js"></script>
+	<script src="assets/js/jquery.validate.min.js"></script>
+	<script src="assets/js/jquery-validate.bootstrap-tooltip.min.js"></script>
+	<script src="assets/js/odometer.min.js"></script>
+	<script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+        // مدیریت Lightbox
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImg = document.querySelector('.lightbox-img');
+        const closeBtn = document.querySelector('.close-btn');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentIndex = 0;
+
+        // باز کردن Lightbox
+        galleryImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                updateLightbox();
+                lightbox.classList.add('active');
+            });
+        });
+
+        // بروزرسانی تصویر
+        function updateLightbox() {
+            lightboxImg.src = galleryImages[currentIndex].src;
+            lightboxImg.alt = galleryImages[currentIndex].alt;
+        }
+
+        // پیمایش تصاویر
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateLightbox();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            updateLightbox();
+        });
+
+        // بستن Lightbox
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if(e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+
+        // کنترل با کیبورد
+        document.addEventListener('keydown', (e) => {
+            if(lightbox.classList.contains('active')) {
+                if(e.key === 'ArrowLeft') prevBtn.click();
+                if(e.key === 'ArrowRight') nextBtn.click();
+                if(e.key === 'Escape') closeBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
